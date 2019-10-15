@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #tanchuang {
+            z-index: 29900;
+            display: none;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .3);
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        #tanchuang .cont {
+            display: block;
+            width: 520px;
+            height: 290px;
+            overflow: hidden;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            border: 1px solid #e5e5e5;
+            background: #fff;
+            z-index: 99200;
+            margin: -150px 0 0 -260px;
+
+        }
+
+        #tanchuang .cont h2 {
+            height: 34px;
+            background: #f5f5f5;
+            line-height: 34px;
+            padding: 0 10px;
+            font-size: 14px;
+            color: #333;
+            margin: 0;
+            /* padding: 0; */
+        }
+
+        #tanchuang .cont h2 a {
+            float: right;
+            color: #333;
+            font-size: 14px;
+        }
+
+        #tanchuang .cont h2 a:hover {
+            color: #dc0f50;
+        }
+
+        #tanchuang .cont p {
+            text-align: center;
+            line-height: 178px;
+            height: 170px;
+            font-size: 18px;
+            color: #666;
+        }
+
+        #tanchuang .cont b {
+            text-align: center;
+            display: block;
+            height: 40px;
+        }
+
+        #tanchuang .cont b a {
+            display: inline-block;
+            margin: 0 16px;
+            width: 150px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+            background: #dc0f50;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tanchuang">
+        <div class="cont">
+            <h2><a id="btnClosed" style="cursor:pointer">关闭</a></h2>
+            <div class="bd" id="message">
+                <p id="confirm_sp_msg"></p>
+                <b>
+                    <a id="btnConfirm">确认</a>
+                </b>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let btnClosed = document.getElementById('btnClosed');
+    let btnConfirm = document.getElementById('btnConfirm');
+    let cont = document.getElementsByClassName('cont')[0];
+    //点击X关闭登陆框
+    btnClosed.onmousedown = function (e) {
+        e.stopPropagation();
+        tanchuang.style.display = 'none';
+    }
+    btnConfirm.onmousedown = function (e) {
+        e.stopPropagation();
+        tanchuang.style.display = 'none';
+    }
+    //按下esc关闭登陆框
+    document.onkeydown = function (ev) {
+        if (ev.keyCode == 27) {
+            tanchuang.style.display = 'none';
+        }
+    }
+
+    //点击标题实现拖拽效果
+    cont.onmousedown = function (ev) {
+        var disX = ev.offsetX;
+        var disY = ev.offsetY;
+        document.onmousemove = function (ev) {
+            var iLeft = ev.pageX - disX;
+            var iTop = ev.pageY - disY;
+            if (iLeft <= 0) {
+                //临界值
+                iLeft = 0;
+            } else if (iLeft >= window.innerWidth - cont.offsetWidth) {
+                iLeft = window.innerWidth - cont.offsetWidth;
+            }
+            if (iTop <= 0) {
+                //临界值
+                iTop = 0;
+            } else if (iTop >= window.innerHeight - cont.offsetHeight) {
+                iTop = window.innerHeight - cont.offsetHeight;
+            }
+            cont.style.marginTop = '0';
+            cont.style.marginLeft = '0';
+            cont.style.left = iLeft + 'px';
+            cont.style.top = iTop + 'px';
+        }
+        document.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    }
+</script>
+
+</html>

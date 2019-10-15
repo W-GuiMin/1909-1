@@ -1,0 +1,299 @@
+.head .content .nav .nav1 .nav-top {
+  background: #333 url(../css/img/nav_b_bg.jpg) no-repeat 203px center;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-bottom-list {
+  display: none;
+}
+
+.head .content .top h1 {
+  background: url(../css/img/logo_reg.jpg) 2px;
+}
+
+.head .content .top .search .hotWord {
+  width: 350px;
+  overflow: hidden;
+}
+
+#carContent {
+  overflow: hidden;
+  width: 1140px;
+  margin: 0 auto;
+}
+
+#carContent h2 {
+  height: 55px;
+  line-height: 55px;
+  color: #333;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+#carContent h2 i {
+  display: block;
+  width: 35px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  float: left;
+  background: url(../css/img/h2_bg.png) no-repeat;
+  padding-left: 5px;
+  color: #fff;
+  margin: 19px 8px 0 0;
+}
+
+#carContent .cartitle {
+  height: 43px;
+  line-height: 43px;
+  background: #f1f1f1;
+  border: 1px solid #d6d6d6;
+  font-size: 12px;
+}
+
+#carContent .cartitle p {
+  float: left;
+  text-align: center;
+}
+
+#carContent .cartitle p input {
+  margin-right: 12px;
+  position: relative;
+  top: 2px;
+}
+
+#carContent ul {
+  min-height: 250px;
+  border-top: none;
+  margin: 0px auto;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+#carContent ul li {
+  height: 116px;
+  text-align: center;
+}
+
+#carContent ul li p {
+  float: left;
+}
+
+#carContent ul .goods {
+  border: 1px solid #d6d6d6;
+  border-top: none;
+}
+
+#carContent ul .goods p {
+  height: 83px;
+  padding: 16px 0;
+  text-align: center;
+}
+
+#carContent ul .goods .good_check {
+  width: 60px;
+  line-height: 84px;
+}
+
+#carContent ul .goods .good_title {
+  width: 598px;
+}
+
+#carContent ul .goods .good_title img {
+  width: 83px;
+  height: 83px;
+  float: left;
+  margin-right: 10px;
+}
+
+#carContent ul .goods .good_title b {
+  height: 30px;
+  margin-top: 24px;
+  line-height: 15px;
+  overflow: hidden;
+  display: block;
+  color: #333;
+  font-size: 12px;
+  font-weight: normal;
+  float: left;
+  width: 300px;
+  margin-right: 50px;
+  text-align: left;
+}
+
+#carContent ul .goods .good_title b:hover {
+  color: red;
+}
+
+#carContent ul .goods .good_title strong {
+  float: left;
+  font-weight: normal;
+  padding-top: 24px;
+  width: 135px;
+  display: block;
+  line-height: 15px;
+  color: #999;
+  text-align: left;
+}
+
+#carContent ul .goods .good_price {
+  width: 125px;
+  font-weight: bold;
+  color: #333;
+  padding-top: 40px;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+#carContent ul .goods .num {
+  width: 150px;
+}
+
+#carContent ul .goods .num .good_num {
+  background: #fff;
+  display: inline-block;
+  width: 85px;
+  height: 24px;
+  border: 1px solid #cbcbcb;
+  overflow: hidden;
+  margin-top: 17px;
+}
+
+#carContent ul .goods .num .good_num span {
+  display: inline-block;
+  width: 27px;
+  height: 24px;
+  line-height: 22px;
+  float: left;
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+}
+
+#carContent ul .goods .num .good_num input {
+  width: 28px;
+  float: left;
+  border-left: 1px solid #eaeaea;
+  text-align: center;
+  height: 24px;
+  line-height: 24px;
+  border-right: 1px solid #eaeaea;
+}
+
+#carContent ul .goods .num b {
+  font-weight: normal;
+  color: red;
+}
+
+#carContent ul .goods .good_total {
+  width: 105px;
+  font-weight: bold;
+  color: #e43e3e;
+  padding-top: 40px;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+#carContent ul .goods .good_del {
+  width: 100px;
+  padding-top: 40px;
+  box-sizing: border-box;
+}
+
+#carContent ul .goods .good_del a {
+  font-size: 12px;
+  color: #333;
+}
+
+#carContent #del {
+  width: 1140px;
+  background: #FFF;
+  margin-bottom: 20px;
+  line-height: 52px;
+  height: 52px;
+  padding: 23px 0 23px 0px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+#carContent #del #allchecked {
+  width: 75px;
+  float: left;
+  font-size: 14px;
+  color: #333;
+}
+
+#carContent #del #allchecked input {
+  float: left;
+  margin: 20px 12px 0 0;
+}
+
+#carContent #del #delall {
+  float: left;
+}
+
+#carContent #del #delall a {
+  font-size: 14px;
+  color: #333;
+}
+
+#carContent #del span {
+  float: right;
+}
+
+#carContent #del span p:nth-child(1) {
+  margin-right: 40px;
+}
+
+#carContent #del span p:nth-child(1) #allnum {
+  color: #dc0f50;
+}
+
+#carContent #del span p:nth-child(2) {
+  margin-right: 15px;
+}
+
+#carContent #del span p:nth-child(2) #total_price {
+  color: #dc0f50;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#carContent #del span p:nth-child(3) {
+  width: 120px;
+  height: 52px;
+  line-height: 52px;
+  background: #dc0f50;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  position: relative;
+  top: -3px;
+}
+
+#carContent #del span p {
+  float: left;
+  color: #999;
+  font-size: 18px;
+  line-height: 68px;
+}
+
+#divCartNull {
+  height: 150px;
+  text-align: center;
+  background: url(../css/img/gwc_kong.png) no-repeat center 111px;
+  padding-top: 300px;
+  line-height: 64px;
+  font-size: 14px;
+  color: #333;
+  display: none;
+}
+
+#divCartNull a {
+  padding: 0 5px;
+  color: #005fbe;
+}
+
+#divCartNull a:hover {
+  color: #dc0f50;
+}

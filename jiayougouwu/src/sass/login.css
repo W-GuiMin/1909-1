@@ -1,0 +1,179 @@
+.head .content .top h1 {
+  background: url(../css/img/logo_reg.jpg) 2px;
+}
+
+.head .content .top .search .hotWord {
+  width: 350px;
+  overflow: hidden;
+}
+
+.head .content .nav {
+  height: 0px;
+  overflow: hidden;
+}
+
+#mainContent {
+  padding: 60px 70px 30px 70px;
+  overflow: hidden;
+  width: 1060px;
+  margin: 0 auto;
+}
+
+#mainContent .fl {
+  width: 448px;
+  height: 336px;
+  padding: 40px 0 0 0;
+  overflow: hidden;
+  margin-bottom: 75px;
+}
+
+#mainContent .fr {
+  width: 448px;
+  overflow: hidden;
+  height: 376px;
+  margin-bottom: 75px;
+}
+
+#mainContent .fr .hd {
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+}
+
+#mainContent .fr .hd a {
+  display: block;
+  width: 50%;
+  text-align: center;
+  float: left;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+}
+
+#mainContent .fr .hd .curr i {
+  color: #dc0f50;
+  border-bottom: 2px solid #dc0f50;
+  display: inline-block;
+  height: 38px;
+}
+
+#mainContent .fr .bd {
+  margin-top: -1px;
+  overflow: hidden;
+  height: 290px;
+  border: 1px solid #e5e5e5;
+  padding: 45px 0 0 70px;
+}
+
+#mainContent .fr .bd font {
+  display: none;
+  height: 40px;
+  line-height: 38px;
+  padding: 0 32px;
+  background: url(../css/img/error_bg.png) no-repeat 9px 50%;
+  color: #e92d2f;
+  font-size: 12px;
+}
+
+#mainContent .fr .bd ul {
+  height: 144px;
+}
+
+#mainContent .fr .bd ul li {
+  overflow: hidden;
+  height: 40px;
+  margin-bottom: 19px;
+  position: relative;
+}
+
+#mainContent .fr .bd ul li i {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background: url(../css/img/icon01.png) no-repeat;
+  position: absolute;
+  left: 11px;
+  top: 11px;
+}
+
+#mainContent .fr .bd ul li .i2 {
+  background: url(../css/img/icon02.png) no-repeat;
+}
+
+#mainContent .fr .bd ul li input {
+  margin-right: 16px;
+  float: left;
+  height: 28px;
+  line-height: 28px;
+  padding: 5px 0 5px 60px;
+  width: 243px;
+  border: 1px solid #d6d6d6;
+  font-size: 14px;
+  color: #666;
+}
+
+#mainContent .fr .bd ul li .active {
+  border-color: #e92d2f;
+}
+
+#mainContent .fr .bd ul li span {
+  display: none;
+  width: 20px;
+  height: 20px;
+  float: left;
+  background: url(../css/img/success_bg.png) no-repeat;
+  margin-top: 10px;
+}
+
+#mainContent .fr .bd ul .l3 {
+  margin-top: -14px;
+}
+
+#mainContent .fr .bd ul .l3 input {
+  width: 13px;
+  height: 13px;
+  border: none;
+  float: left;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 0;
+}
+
+#mainContent .fr .bd ul .l3 label {
+  color: #666;
+  font-size: 14px;
+}
+
+#mainContent .fr .bd ul .l3 a {
+  padding-left: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+#mainContent .fr .bd ul .l3 a:hover {
+  color: #dc0f50;
+}
+
+#mainContent .fr .bd ul .l3 .toreg {
+  float: right;
+  padding-right: 70px;
+}
+
+#mainContent .fr .bd p {
+  height: 40px;
+  line-height: 40px;
+  padding-right: 70px;
+}
+
+#mainContent .fr .bd p a {
+  display: block;
+  background: #dc0f50;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
+
+#mainContent .fr .quick {
+  padding-top: 9px;
+  height: 326px;
+}

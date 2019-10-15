@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../css/img/jygw.ico" type="image/x-icon">
+    <title>家有购物-购物车</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/modules.css">
+    <link rel="stylesheet" href="../css/car.css">
+</head>
+
+<body>
+    <div class="wrap_top"></div>
+    <div class="head"></div>
+    <div id="carContent">
+        <h2>
+            <i>包邮</i>
+            <span>所有商品全场包邮(西藏、新疆、青海地区除外)</span>
+        </h2>
+        <div class="cartitle">
+            <p style="width: 98px"><input type="checkbox" name="" id="_allcheck" value="" />全选</p>
+            <p style="width: 560px">商品</p>
+            <p style="width: 125px">单价（元）</p>
+            <p style="width: 150px;">数量</p>
+            <p style="width: 105px;">小计（元）</p>
+            <p style="width: 100px;">操作</p>
+        </div>
+
+        <ul id="cart">
+            <!-- <li class="goods">
+                <p class="good_check"><input type="checkbox" name="good" value="" /></p>
+                <p class="good_title">
+                    <img src="../img/a3.jpg" alt="">
+                    <b class="good_name">DEBO德铂路卡斯不锈钢多用锅DEP-Z33C 银色 DEP-Z33C</b>
+                    <strong>颜色：银色<br>款式：DEP-Z33C</strong>
+                </p>
+                <p class="good_price">99.99</p>
+                <p class="num">
+                    <b class="good_num">
+                        <span class="cutnum">-</span>
+                        <input class="nownum" data-num="10" type="text" value="1" />
+                        <span class="addnum">+</span><br>
+                    </b><br>
+                    <b>限购1件</b>
+                </p>
+                <p class="good_total">99.99</p>
+                <p class="good_del">
+                    <a href="javascript:;">删除</a>
+                </p>
+            </li> -->
+        </ul>
+        <div id="del">
+            <p id="allchecked" class="all"><input type="checkbox" name="" id="" value="" />全选</p>
+            <p id="delall">
+                <a href="javascript:;">删除选中的商品</a>
+            </p>
+            <span>
+                <p>已选择 <i id="allnum">0</i> 件商品</p>
+                <p>应付款：<i id="total_price">￥0.00</i></p>
+                <p id="jiesuan">去结算</p>
+            </span>
+        </div>
+
+    </div>
+    <div id="divCartNull">
+        <p>购物车内暂没有商品，您可以<a href="../index.html">去首页</a>挑选商品</p>
+    </div>
+    <div class="foot"></div>
+    <div class="tanchuang"></div>
+    <div class="fixed"></div>
+</body>
+<script src="../js/jquery-1.10.1.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/modules.js"></script>
+<script>
+    (function () {
+        $('.fixed').load('toTop.html')
+        setcookie('url', location.href, 7);
+        class Car {
+            constructor(id) {
+                //构造函数
+                this.carBox = $(id);
+                this.init();
+            }
+            init() {
+                //查找节点，和绑定事件
+                this.creatList();//渲染数据到购物车 1.ajax
+                this.addNum();//点击加添加数量
+                this.cutNum();//点击减少数量
+                this.manual();//手动输入修改数量
+                this.removeRow();//删除某行 3.ajax gid
+                this.allCheck();//全选 
+                this._allCheck();//全选 
+                this.checkRow();//勾选某一行复选框
+                this.allRemove();//全删
+            }
+
+            //判断购物车是否为空 显示不同界面
+            listLenght() {
+                if ($('.goods').size()) {
+                    $('#carContent').show();
+                    $('#divCartNull').hide();
+                } else {
+                    $('#carContent').hide();
+                    $('#divCartNull').show();
+                }
+            }
+
+
+            //发送ajax获取用户商品数据，渲染到页面
+            creatList() {
+                let _this = this;
+                let uid = getcookie('uid');
+                console.log(uid)
+                if (uid) {
+                    $.ajax({
+                        type: 'post',
+                        url: '../api/car.php',
+                        dataType: 'json',
+                        data: {
+                            name: uid
+                        },
+                        success: str => {
+                            creatCar(str);
+                        }
+                    });
+                    function creatCar(data) {
+                        let str = data.map(item => {
+                            let totals = (item.price * item.goodnum).toFixed(2);
+                            let imgUrl = item.url2.split(',');
+                            return `<li class="goods" goods_id="${item.goodsId}">
+                                        <p class="good_check"><input type="checkbox" name="good" value="" /></p>
+                                        <p class="good_title">
+                                            <img src="${imgUrl[0]}" alt="">
+                                            <b class="good_name">${item.title}</b>
+                                            <strong>${item.color}<br>${item.kuanshi}</strong>
+                                        </p>
+                                        <p class="good_price">${item.price}</p>
+                                        <p class="num">
+                                            <b class="good_num">
+                                                <span class="cutnum">-</span>
+                                                <input class="nownum" data-num="${item.repertory}" goods_id="${item.goodsId}" type="text" value="${item.goodnum}" />
+                                                <span class="addnum">+</span><br>
+                                            </b><br>
+                                            <b>限购${item.repertory}件</b>
+                                        </p>
+                                        <p class="good_total">${totals}</p>
+                                        <p class="good_del">
+                                            <a href="javascript:;">删除</a>
+                                        </p>
+                                    </li>`;
+                        }).join('');
+                        $('#cart').html(str);
+                        _this.listLenght();
+                    }
+                } else {
+                    $('#carContent').hide();
+                    $('#divCartNull').show();
+                    $('#divCartNull').html('<p>您还未登录，请<a href="login.html">登录</a>后查看</p>');
+                }
+            }
+
+            //数量的变化改变数据库里的信息
+            total(now, num, type) {
+                let kuncun = $(now).parent().find('.nownum').data('num');//库存量
+                if (num < 1) {
+                    num = 1;
+                    $(now).css('color', '#ccc');
+                } else if (num > kuncun) {
+                    num = kuncun;
+                    $(now).css('color', '#ccc');
+                    //这里可以给个提示：您输入的值超过了库存量
+                }
+                $(now).parent().find('.nownum').val(num);//更改数量
+
+                //小计=数量*单价
+                let price = $(now).parent().parent().prev().text();//单价
+                let all = (num * price).toFixed(2);//小计
+                $(now).parent().parent().next().html(all);
+                this.allNum();
+            }
+
+            //点击加添加数量
+            addNum() {
+                let _this = this;
+                this.carBox.on('click', '.addnum', function () {
+                    let num = $(this).prev().val();
+                    num++;
+                    _this.total($(this), num, 'add');//修改数量和单价
+                    $(this).prev().prev().css('color', '#333');
+                    $(this).prev().css('color', '#333');
+                    //点击输入修改数据库信息
+                    let good_num = $(this).parent().find('.nownum').val();
+                    let goods_id = $(this).parent().find('.nownum').attr('goods_id');
+                    let uid = getcookie('uid');
+                    if (uid) {
+                        $.ajax({
+                            type: 'post',
+                            url: '../api/jiongoods.php',
+                            data: {
+                                name: uid,
+                                good: goods_id,
+                                num: good_num
+                            }, success: str => {
+                                console.log(str)
+                            }
+                        });
+                    }
+
+                });
+            }
+
+            //点击减减少数量
+            cutNum() {
+                let _this = this;
+                this.carBox.on('click', '.cutnum', function () {
+                    let num = $(this).next().val();
+                    num--;
+                    _this.total($(this), num, 'cut');
+                    $(this).next().next().css('color', '#333');
+                    $(this).next().css('color', '#333');
+                    //点击输入修改数据库信息
+                    let good_num = $(this).parent().find('.nownum').val();
+                    let goods_id = $(this).parent().find('.nownum').attr('goods_id');
+                    let uid = getcookie('uid');
+                    if (uid) {
+                        $.ajax({
+                            type: 'post',
+                            url: '../api/jiongoods.php',
+                            data: {
+                                name: uid,
+                                good: goods_id,
+                                num: good_num
+                            }, success: str => {
+                                console.log(str)
+                            }
+                        });
+                    }
+                });
+            }
+
+            //输入改变数量
+            manual() {
+                let _this = this;
+                this.carBox.on('input', '.nownum', function () {
+                    let num = $(this).val();
+                    _this.total($(this), num, 'manual');
+                    //点击输入修改数据库信息
+                    let good_num = $(this).parent().find('.nownum').val();
+                    let goods_id = $(this).parent().find('.nownum').attr('goods_id');
+                    let uid = getcookie('uid');
+                    if (uid) {
+                        $.ajax({
+                            type: 'post',
+                            url: '../api/jiongoods.php',
+                            data: {
+                                name: uid,
+                                good: goods_id,
+                                num: good_num
+                            }, success: str => {
+                                console.log(str)
+                            }
+                        });
+                    }
+                });
+            }
+
+            //删除行更新数据库信息
+            removeRow() {
+                let _this = this;
+                this.carBox.on('click', '.good_del', function () {
+                    let ok = confirm('您确定要删我吗？');
+                    if (ok) {
+                        $(this).parent().remove();
+                        //拿到商品编号和用户名进行库操作
+                        let removeid = $(this).parent().attr('goods_id');
+                        let uid = getcookie('uid');
+                        $.ajax({
+                            type: 'post',
+                            url: '../api/removeRow.php',
+                            // dataType: 'json',
+                            data: {
+                                name: uid,
+                                removeid: removeid
+                            }
+                        });
+                    }
+                    _this.allNum();
+                    _this.listLenght();
+                });
+            }
+
+            //全选
+            allCheck() {
+                let _this = this;
+                $('#allchecked input').click(function () {
+                    let isok = $('#allchecked input').prop('checked');
+                    $('.good_check input').prop('checked', isok);
+                    $('#_allcheck').prop('checked', isok);
+                    _this.allNum();
+                });
+            }
+            _allCheck() {
+                let _this = this;
+                $('#_allcheck').click(function () {
+                    let isok = $('#_allcheck').prop('checked');
+                    $('.good_check input').prop('checked', isok);
+                    $('#allchecked input').prop('checked', isok);
+                    _this.allNum();
+                });
+            }
+
+            //被勾选复选框的下标数组
+            checkArr() {
+                let arr = [];
+                $('.good_check input').each(function (index, item) {
+                    if ($(item).prop('checked')) {//被勾选了
+                        arr.push(index);
+                    }
+                });
+                return arr;
+            }
+
+            //计算总数量和总价格
+            allNum() {
+                let checkall = this.checkArr();//被勾选的行的下标，存在数组里面
+                let num = 0;//放商品总数量
+                let total = 0;//放总价
+                checkall.forEach(function (item, index) {
+                    num += $('#cart .nownum').eq(checkall[index]).val() * 1;//累加
+                    total += $('#cart .good_total').eq(checkall[index]).text() * 1;
+                });
+                $('#allnum').html(`${num}`);
+                $('#total_price').html(`￥${total.toFixed(2)}`);
+            }
+
+            //单行复选框控制全选计算总数量和总价格
+            checkRow() {
+                let _this = this;
+                this.carBox.on('click', '.good_check input', function () {
+                    let len = $('.good_check input').length;//本事复选框的个数
+                    let achecknum = $('.good_check input:checked').length;
+                    if (len == achecknum) {
+                        //已经全选
+                        $('#allchecked input').prop('checked', true);
+                        $('#_allcheck').prop('checked', true);
+                    } else {
+                        $('#allchecked input').prop('checked', false);
+                        $('#_allcheck').prop('checked', false);
+                    }
+                    _this.allNum();
+                });
+            }
+
+            //全部删除
+            allRemove() {
+                let _this = this;
+                $('#delall').click(function () {
+                    let checkall = this.checkArr().reverse();//被勾选的行的下标，存在数组里面
+                    let ok = confirm('您确定要删除我们？');
+                    if (ok) {
+                        checkall.forEach(function (item, index) {
+                            $('#cart .goods').eq(checkall[index]).remove();
+                        });
+                        this.allNum();
+                        _this.listLenght();
+                        //库操作
+                        let uid = getcookie('uid');
+                        $.ajax({
+                            type: 'post',
+                            url: '../api/allRemove.php',
+                            data: {
+                                name: uid
+                            }
+                        });
+                    }
+                }.bind(this));
+            }
+        }
+
+        //调用购物车
+        new Car('#cart');
+
+        $('#jiesuan').click(function () {
+            $('#tanchuang').css('display', 'block');
+            $('#confirm_sp_msg').html('共' + $('#total_price').text() + ' 元请扫码付款<img src="../img/ewm.png" alt="" style="height:100%;">');
+        });
+    })();
+</script>
+
+</html>

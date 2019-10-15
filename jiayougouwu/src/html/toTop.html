@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #fixed {
+            width: 60px;
+            position: fixed;
+            right: 10px;
+            top: 70%;
+            margin-top: -150px;
+        }
+
+        #fixed li {
+            height: 60px;
+            margin-bottom: 10px;
+            position: relative;
+            background: url(../css/img/fiexd_bg.png) no-repeat;
+            cursor: pointer;
+        }
+
+        #fixed li:nth-child(1):hover {
+            background: url(../css/img/fiexd_bg2.png) no-repeat;
+        }
+
+        #fixed li:nth-child(2) {
+            background: url(../css/img/fiexd_bg.png) no-repeat left -70px;
+        }
+
+        #fixed li:nth-child(2):hover {
+            background: url(../css/img/fiexd_bg2.png) no-repeat left -70px;
+        }
+
+        #fixed li:nth-child(3) {
+            display: none;
+            background: url(../css/img/fiexd_bg.png) no-repeat left -140px;
+        }
+
+        #fixed li:nth-child(3):hover {
+            display: none;
+            background: url(../css/img/fiexd_bg2.png) no-repeat left -140px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="fixed">
+        <li></li>
+        <li></li>
+        <li id="box"></li>
+    </ul>
+
+</body>
+<script>
+    (function () {
+        totop({
+            ele: 'box',
+            scrollY: 200
+        });
+
+        function totop(opt) {
+
+            let defaultobj = {
+                scrollY: 400,
+                speed: 500
+            };
+
+            Object.assign(defaultobj, opt);
+
+            var box = document.getElementById(defaultobj.ele);
+
+            window.onscroll = function () {
+                if (window.scrollY >= defaultobj.scrollY) {
+                    box.style.display = 'block';
+                } else {
+                    box.style.display = 'none';
+                }
+            }
+
+            //点击事件
+            box.onclick = function () {
+                var speed = defaultobj.speed;
+                var top = window.scrollY;
+                var timer1 = setInterval(function () {
+                    speed -= 10;
+                    if (speed <= 0) {
+                        speed = 200;
+                    }
+                }, 30);
+
+                var timer2 = setInterval(function () {
+                    top -= speed;
+                    if (top <= 0) {
+                        clearInterval(timer1);
+                        clearInterval(timer2);
+                    }
+                    window.scrollTo(0, top);
+                }, 100);
+            }
+        }
+    })();
+</script>
+
+</html>

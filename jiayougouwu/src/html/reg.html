@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../css/img/jygw.ico" type="image/x-icon">
+    <title>家有购物-注册</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/modules.css">
+    <link rel="stylesheet" href="../sass/reg.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="wrap_top"></div>
+    <div class="head"></div>
+    <div id="mainContent">
+        <div class="fl">
+            <ul id="register">
+                <li>
+                    <b>
+                        <i>*</i>
+                        手机号
+                    </b>
+                    <input id="txtPhoneNo" maxlength="11" type="tel" value="" placeholder="请输入11位有效手机号码">
+                    <span id="emPhoneNo" class="s1">请输入11位有效手机号</span>
+                    <span id="emPhoneYes" class="s3"></span>
+                </li>
+                <li id="li_Verify">
+                    <b>
+                        <i>*</i>
+                        图片验证
+                    </b>
+                    <input id="txtPicCode" type="text" class="text" value="" placeholder="请输入图片验证码">
+                    <div id="Verify"></div>
+                    <span class="s1 txtno">请输入正确验证码</span>
+                    <span class="s3 txtyes"></span>
+                </li>
+                <li>
+                    <b>
+                        <i>*</i>
+                        设置密码
+                    </b>
+                    <input id="txtPass" type="password" value="" placeholder="请输入6-16个字符，不能添加空格哦">
+                    <span class="s1 emPass">密码格式错误</span>
+                    <span class="s3 Pass"></span>
+                </li>
+                <li>
+                    <b>
+                        <i>*</i>
+                        确认密码
+                    </b>
+                    <input id="txtPassConfirm" type="password" value="" placeholder="请输入确认密码">
+                    <span class="s1 emPassConfirm">两次输入密码不一致</span>
+                    <span class="s3 Confirm"></span>
+                </li>
+            </ul>
+            <p>
+                <input type="checkbox" name="" id="btnAgree">
+                我已阅读并同意
+                <a href="" class="on">《会员注册协议》</a>
+                和
+                <a href="" class="on">《隐私保护政策》</a>
+            </p>
+            <p>
+                <a href="###" id="btnRegister" class="btn">注 册</a>
+            </p>
+            <font>
+                <a href="login.html">我已注册，立即登录</a>
+            </font>
+        </div>
+        <div class="fr">
+            <img src="../img/login001.jpg" alt="">
+        </div>
+    </div>
+    <div class="foot"></div>
+    <div class="tanchuang"></div>
+    <div class="fixed"></div>
+</body>
+<script src="../js/jquery-1.10.1.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/modules.js"></script>
+<script>
+    (function () {
+        $('.fixed').load('toTop.html')
+        let isok1 = false;
+        let isok2 = false;
+        let isok3 = false;
+        let isok4 = false;
+        let isok5 = false;
+        //手机号码验证
+        $('#txtPhoneNo').blur(function () {
+            var tels = $('#txtPhoneNo').val() * 1;
+            var reg = /^1[3-9]\d{9}$/;
+            if (reg.test(tels)) {
+                $('#emPhoneNo').css('display', 'none');
+                $.ajax({
+                    type: 'get',
+                    url: '../api/reg.php',
+                    data: {
+                        name: tels
+                    },
+                    success: str => {
+                        console.log(str)
+                        if (str == 'yes') {
+                            $('#emPhoneYes').css('display', 'block');
+                            isok1 = true;
+                        }
+                        else if (str == 'no') {
+                            $('#emPhoneNo').html('用户已存在');
+                            $('#emPhoneNo').css('display', 'block');
+                            $('#emPhoneYes').css('display', 'none');
+                            isok1 = false;
+                        }
+                    }
+                });
+            } else {
+                $('#emPhoneNo').html('请输入11位有效手机号');
+                $('#emPhoneNo').css('display', 'block');
+                $('#emPhoneYes').css('display', 'none');
+                isok1 = false;
+            }
+        });
+
+        //验证码
+        function _Verify() {
+            $('#Verify').html(verify(4));
+            $('.yanzheng').map(item => {
+                $('.yanzheng').eq(item).css('color', color());
+                $('.yanzheng').eq(item).css('font-size', ranNum(14, 25));
+            });
+        };
+        $('#Verify').click(function () {
+            _Verify();
+            $('.txtno').css('display', 'none');
+            $('.txtyes').css('display', 'none');
+        });
+        _Verify();
+        $('#txtPicCode').blur(function () {
+            let val1 = $('#txtPicCode').val();
+            let val2 = $('#Verify').text();
+            console.log(val1, val2)
+            if (val1 == val2) {
+                $('.txtyes').css('display', 'block');
+                $('.txtno').css('display', 'none');
+                isok2 = true;
+            }
+            else {
+                $('.txtno').css('display', 'block');
+                $('.txtyes').css('display', 'none');
+                _Verify();
+                isok2 = false;
+            }
+        });
+
+        //设置密码
+        $('#txtPass').blur(function () {
+            var pass = $('#txtPass').val();
+            var reg = /^\S{6,16}$/;
+            if (reg.test(pass)) {
+                $('.emPass').css('display', 'none');
+                $('.Pass').css('display', 'block');
+                isok3 = true;
+            } else {
+                $('.emPass').css('display', 'block');
+                $('.Pass').css('display', 'none');
+                isok3 = false;
+            }
+        });
+
+        //确认密码
+        $('#txtPassConfirm').blur(function () {
+            var pass = $('#txtPass').val();
+            var _pass = $('#txtPassConfirm').val();
+            console.log(pass, _pass)
+            if (_pass == pass) {
+                $('.emPassConfirm').css('display', 'none');
+                $('.Confirm').css('display', 'block');
+                isok4 = true;
+            } else {
+                $('.emPassConfirm').css('display', 'block');
+                $('.Confirm').css('display', 'none');
+                isok4 = false;
+            }
+
+        });
+        //协议勾选
+
+        //确认登录
+        $('#btnRegister').click(function () {
+            isok5 = $('#btnAgree').prop('checked');
+            if (isok1 && isok2 && isok3 && isok4 && isok5) {
+                let name = $('#txtPhoneNo').val();
+                let password = $('#txtPass').val();
+                $.ajax({
+                    type: 'post',
+                    url: '../api/regok.php',
+                    data: {
+                        name: name,
+                        password: password
+                    },
+                    success: str => {
+                        console.log(str)
+
+                        if (str == 'yes') {
+                            $('#tanchuang').css('display', 'block');
+                            $('#confirm_sp_msg').html('注册成功，请前往主页登录');
+                        } else {
+                            $('#tanchuang').css('display', 'block');
+                            $('#confirm_sp_msg').html('注册失败');
+                        }
+                    }
+                });
+            } else {
+                $('#tanchuang').css('display', 'block');
+                $('#confirm_sp_msg').html('请完善注册信息');
+            }
+
+
+        });
+    })();
+</script>
+
+</html>

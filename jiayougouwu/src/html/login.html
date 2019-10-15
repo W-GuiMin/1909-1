@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../css/img/jygw.ico" type="image/x-icon">
+    <title>家有购物-登录</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/modules.css">
+    <link rel="stylesheet" href="../sass/login.css">
+</head>
+
+<body>
+    <div class="wrap_top"></div>
+    <div class="head"></div>
+    <div id="mainContent">
+        <div class="fl">
+            <img src="../img/login001.jpg" alt="">
+        </div>
+        <div class="fr">
+            <div class="hd">
+                <a class="curr"><i>用户登录</i></a>
+                <a><i>快捷登录</i></a>
+            </div>
+            <div class="bd">
+                <font id="message">请输入11位有效手机号</font>
+                <ul>
+                    <li>
+                        <i class="i1"></i>
+                        <input type="text" id="txtUserName" maxlength="11" placeholder="请输入11位有效手机号">
+                    </li>
+                    <li>
+                        <i class="i2"></i>
+                        <input type="password" id="txtPass" placeholder="请输入密码">
+                    </li>
+                    <li class="l3">
+                        <input type="checkbox" name="" id="">
+                        <label for="">下次自动登录</label>
+                        <a href="">重置密码</a>
+                        <a href="reg.html" class="toreg">新用户注册</a>
+                    </li>
+                </ul>
+                <p id="loginBtn"><a href="###">登 录</a></p>
+            </div>
+            <div class="bd quick">
+                手机验证码不可用
+            </div>
+        </div>
+    </div>
+    <div class="foot"></div>
+    <div class="tanchuang"></div>
+    <div class="fixed"></div>
+</body>
+<script src="../js/jquery-1.10.1.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/modules.js"></script>
+<script>
+    (function () {
+        $('.fixed').load('toTop.html')
+        //切换登陆方式
+        $('.hd').on('click', 'a', function () {
+            $(this).addClass('curr').siblings().removeClass('curr');
+            $('.bd').hide().eq($(this).index()).show();
+        });
+        //验证登录
+        $('#loginBtn').click(function () {
+            let uid = $('#txtUserName').val();
+            let upaw = $('#txtPass').val();
+            let usn = getcookie('uid');
+
+            if (usn) {
+                //登录
+                $('#tanchuang').css('display', 'block');
+                $('#confirm_sp_msg').html('你已经登录了，如需继续登录请前往主页退出当前账号');
+            } else {
+                //未登录
+                $.ajax({
+                    type: 'post',
+                    url: '../api/login.php',
+                    data: {
+                        name: uid,
+                        password: upaw
+                    },
+                    success: str => {
+                        console.log(str)
+
+                        if (str == '登陆成功') {
+                            setdata();//存cookie
+                            let url = getcookie('url');
+                            if (url) {
+                                //查找，证明是有上一页，登陆成功一律回到上一页
+                                location.href = url;
+                            } else {
+                                //注册页、首页、登陆页跳到登陆页的，登陆成功一律回到首页
+                                location.href = '../index.html';
+                            }
+                        } else if (str == '密码错误') {
+                            $('#tanchuang').css('display', 'block');
+                            $('#confirm_sp_msg').html('密码错误');
+                        } else if (str == '用户名不存在') {
+                            $('#tanchuang').css('display', 'block');
+                            $('#confirm_sp_msg').html('用户名不存在');
+                        }
+                    }
+                });
+            }
+
+            function setdata() {
+                setcookie('uid', uid, 10);
+            }
+
+
+
+        });
+
+    })();
+</script>
+
+</html>

@@ -1,0 +1,23 @@
+{
+  "id": "1343543",
+  "name": "1909",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1418224",
+      "name": "上下箭头-3",
+      "font_class": "shangxiajiantou-",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "3338424",
+      "name": "下行宽带",
+      "font_class": "xiahangkuandai",
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    }
+  ]
+}

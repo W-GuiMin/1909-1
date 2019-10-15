@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../css/img/jygw.ico" type="image/x-icon">
+    <title>家有购物-商品列表</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/modules.css">
+    <link rel="stylesheet" href="../css/font_1343543_lwrbzpmpi5d/iconfont.css">
+    <link rel="stylesheet" href="../sass/list.css">
+</head>
+
+<body>
+    <div class="wrap_top"></div>
+    <div class="head">
+        <div class="content">
+            <div class="top">
+                <h1 class="fl">家有购物</h1>
+                <div class="search fl">
+                    <input type="text" id="txtSearch">
+                    <a href="###" id="btnSearch" class="sou">搜 索</a>
+                    <p id="hotWord" class="hotWord">
+                        <a href="###">破壁机</a>
+                        <a href="###">羽绒服</a>
+                        <a href="###">女装</a>
+                        <a href="###">京城之霜</a>
+                        <a href="###">乳胶床垫</a>
+                        <a href="###">燕窝</a>
+                        <a href="###">韩束</a>
+                        <a href="###">白酒</a>
+                        <a href="###">双立人</a>
+                    </p>
+                </div>
+                <div class="gou fl" id="car">
+                    <a href="###" id="mycar" class="gocar">我的购物车
+                    </a>
+                    <p class="biao"></p>
+                    <div class="ware_list" id="ware_list">
+                        <!--==登录===-->
+                        <div class="you" id="car_yes">
+                            <h2>最新加入商品</h2>
+                            <ul class="list" id="waresList">
+                                <!-- <li>
+                                    <a href="##" class="product">
+                                        <img src="../img/a1.jpg" alt="">
+                                        <p>赛普瑞斯.先生战马不粘锅具组</p>
+                                    </a>
+                                    <span>999.00 X 1<a href="##" class="delete">待付款</a></span>
+                                </li> -->
+                            </ul>
+                            <div class="total">
+                                <span>
+                                    <a href="###" id="btnCart">去购物车</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!--===没有登录===-->
+                        <div class="wu" id="car_no">
+                            您还未登录，登录后才可以查看购物车
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="nav1 fl">
+                    <p class="nav-top">全部商品分类</p>
+                    <div class="nav-bottom">
+                        <ul class="nav-bottom-list">
+                            <!-- <li class="nav-bottom-li">服饰鞋包</li>
+                                            <li class="nav-bottom-li">家具家纺</li>
+                                            <li class="nav-bottom-li">名酒茗茶</li> -->
+                        </ul>
+                        <div class="nav-content">
+                            <!-- <dl>
+                                                <dt>
+                                                    <a href="">女装</a>
+                                                    <i>></i>
+                                                </dt>
+                                                <dd>
+                                                    <a href="">女士外套</a>
+                                                    <a href="">女士羽绒</a>
+                                                    <a href="">女士内裤</a>
+                                                </dd>
+                                            </dl> -->
+                        </div>
+                    </div>
+
+                </div>
+                <ul class="nav2 fl">
+                    <li><a href="">首页</a></li>
+                    <li><a href="">TV直播</a></li>
+                    <li><a href="">品牌惠</a></li>
+                    <li><a href="">惠家有APP</a></li>
+                    <li><a href="">惠家尊享</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="search-list">
+        <div class="fl">
+            <h2 class="">全部商品</h2>
+            <div class="term">
+                <dl>
+                    <dt>分类</dt>
+                    <dd>全部</dd>
+                </dl>
+                <dl>
+                    <dt>品牌</dt>
+                    <dd>全部</dd>
+                </dl>
+            </div>
+            <ul class="filter">
+                <li class="active">综合</li>
+                <li>销量<i class="iconfont icon-xiahangkuandai"></i></li>
+                <li>人气<i class="iconfont icon-xiahangkuandai"></i></li>
+                <li>价格<i class="iconfont icon-shangxiajiantou-"></i></li>
+                <li id="on">
+                    <input type="text" name="" id="minPrice" placeholder="￥">
+                    <span>-</span>
+                    <input type="text" name="" id="maxPrice" placeholder="￥">
+                    <input type="button" value="确认" id="btn">
+                </li>
+            </ul>
+            <ul id="productList" class="ac-list">
+                <!-- <li>
+                    <a href="">
+                        <img src="../img/mrtx.jpg" alt="">
+                        <b>PASSEZLA希卡露姿美白祛斑霜</b>
+                        <p>￥399</p>
+                        <font>月销25件</font>
+                    </a> -->
+            </ul>
+            <div id="pag" class="paglist">
+                <span id="PaginationTB">
+                    <!-- <a href="">上一页</a>
+                    <a href="" class="aactive">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                    <a href="">下一页</a> -->
+                </span>
+                <span id="PageSet">
+                    <em>共<i id="aPages"></i>页 到第<input type="text" value="1" id="gopage">页</em>
+                    <a href="###" id="goPageBtn">确定</a>
+                </span>
+            </div>
+        </div>
+        <div class="fr">
+            <div class="hd">
+                <h2>热销推荐</h2>
+            </div>
+            <ul class="bd">
+                <li>
+                    <i>1</i>
+                    <img src="https://image-family.huijiayou.cn/cfiles/staticfiles/imzoom/2c3e0/4c1978a284ac43f481fe87bbfa26f66b.jpg"
+                        alt="">
+                    <p>美之扣双密封保鲜盒5件套装 硅胶厨房密封盒保鲜盖食...</p>
+                    <span>￥65</span>
+                </li>
+                <li>
+                    <i class="i2">2</i>
+                    <img src="https://image-family.huijiayou.cn/cfiles/staticfiles/imzoom/2c3dd/1e2d5bfc28e24e28aa1ab9afd6c05a02.jpg"
+                        alt="">
+                    <p>泰国·beauty buffet 海洋矿物质喷雾 150ml</p>
+                    <span>￥79</span>
+                </li>
+                <li>
+                    <i class="i3">3</i>
+                    <img src="https://image-family.huijiayou.cn/cfiles/staticfiles/imzoom/2c3dd/0cc78b6a76104341ac1dbe854201ff4d.jpg"
+                        alt="">
+                    <p>泰国·beauty buffet 海洋矿物质喷雾 ...</p>
+                    <span>￥138</span>
+                </li>
+                <li>
+                    <img src="https://image-family.huijiayou.cn/cfiles/staticfiles/imzoom/2c3dd/52f722049b264dc9afd7f74b1a8ff4c5.jpg"
+                        alt="">
+                    <p>泰国·Mistinе 牛奶卸妆乳 100ml</p>
+                    <span>￥58</span>
+                </li>
+                <li>
+                    <img src="https://image-family.huijiayou.cn/cfiles/staticfiles/imzoom/2c3dd/4f669fcb8b074ad18c3180fb1594b120.jpg"
+                        alt="">
+                    <p>泰国·Annabella安娜贝拉草本祛痘去印修复黄...</p>
+                    <span>￥99</span>
+                </li>
+                <li>
+                    <img src="https://image-family.huijiayou.cn/cfiles/staticfiles/imzoom/2c3dd/afd884f492174a19ac8acaf5508327fb.jpg"
+                        alt="">
+                    <p>泰国·Annabella安娜贝拉海藻玻尿酸氨基酸洗...</p>
+                    <span>￥78</span>
+                </li>
+                <li>
+                    <img src="https://image-family.huijiayou.cn/cfiles/staticfiles/imzoom/2c3dd/8a9430dcfd514654900e7b03ade961c1.jpg"
+                        alt="">
+                    <p>泰国·AnnaBella安娜贝拉天使草精华莹润养肤...</p>
+                    <span>￥218</span>
+                </li>
+                <li>
+                    <img src="https://image-family.huijiayou.cn/cfiles/staticfiles/imzoom/2c3dd/2fc36de71d9244de8dac09496340184b.jpg"
+                        alt="">
+                    <p>泰国·ANNABELLA淡斑祛红精华素分解色素痘印30ml</p>
+                    <span>￥368</span>
+                </li>
+                <li>
+                    <img src="https://image-family.huijiayou.cn/cfiles/staticfiles/imzoom/2c3dd/7fe284c601b349bc9479319c5f9d53c8.jpg"
+                        alt="">
+                    <p> 泰国·Annabella天使净颜赋活舒缓洁面乳100ml</p>
+                    <span>￥138</span>
+                </li>
+                <li>
+                    <img src="https://image-family.huijiayou.cn/cfiles/staticfiles/imzoom/2c3dd/b910f2ecfde74c9083e32367a2a6033a.jpg"
+                        alt="">
+                    <p>泰国·Annabella焕颜水光精华50ml 保湿补水亮肤</p>
+                    <span>￥268</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="foot"></div>
+    <div class="fixed"></div>
+
+</body>
+<script src="../js/jquery-1.10.1.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/list.js"></script>
+<script>
+    (function () {
+        $('.fixed').load('toTop.html')
+        setcookie('url', location.href, 7);
+        let goodsKind = location.search.substr(1);//获取商品类型
+        let ipage = 1;//获取第一页
+        let num = 20;//每页20条数据
+        let paixu = '';//升序降序排序
+        let mohu = '';//模糊查询
+        let type = '';
+        let minPrice = 0;//价格最小值
+        let maxPrice = 0;//价格最大值
+        let sum = 0;
+        let n = 1;//执行1ajax渲染初始化界面
+
+        //获取第一页的内容渲染到页面
+        function init(n) {
+            if (n == 1) {
+                $.ajax({
+                    type: 'get',
+                    url: '../api/getgoods.php',
+                    dataType: 'json',
+                    data: {
+                        kind: goodsKind,
+                        ipage,
+                        num,
+                        paixu,
+                        type
+                    },
+                    success: str => {
+                        // console.log(str)
+                        showlists(str);
+                    }
+                });
+            }
+            if (n == 2) {
+                $.ajax({
+                    type: 'get',
+                    url: '../api/qujian.php',
+                    dataType: 'json',
+                    data: {
+                        kind: goodsKind,
+                        ipage,
+                        num,
+                        paixu,
+                        type,
+                        minP: minPrice,
+                        maxP: maxPrice
+                    },
+                    success: str => {
+                        // console.log(str)
+                        showlists(str);
+                    }
+                });
+            }
+            if (n == 3) {
+                $.ajax({
+                    type: 'get',
+                    url: '../api/mohu.php',
+                    dataType: 'json',
+                    data: {
+                        mohu,
+                        ipage,
+                        num,
+                        paixu,
+                        type,
+                        minP: minPrice,
+                        maxP: maxPrice
+                    },
+                    success: str => {
+                        // console.log(str)
+                        showlists(str);
+                    }
+                });
+            }
+
+            //渲染函数，分页
+            function showlists(data) {
+                let datas = data.list;
+                let str = datas.map(item => {
+                    return ` <li goodId="${item.goodsId}">
+                            <a href="###">
+                                <img src="${item.url2}" alt="">
+                                <b>${item.title}</b>
+                                <p>￥${item.price}</p>
+                                <font>月销${item.sales}件</font>
+                            </a>
+                        </li>`;
+                }).join('');
+                $('#productList').html(str);
+
+                //计算总页码
+                sum = Math.ceil(data.total / num);
+                let aStr = '<a href="###" class="apver">上一页</a>';
+                $('#aPages').text(sum);
+                for (let i = 0; i < sum; i++) {
+                    aStr += `<a href="###" class="b">${i + 1}</a>`;
+                }
+                aStr += `<a href="###" class="anext">下一页</a>`;
+                $('#PaginationTB').html(aStr);
+                $('#PaginationTB').find('.b').eq(ipage - 1).addClass('aactive');
+
+                //点击跳转到对应的内容
+                $('#PaginationTB').on('click', '.b', function () {
+                    ipage = $(this).text();
+                    init(n);
+                });
+            }
+        }
+        //按钮功能
+        function btns(n) {
+            let istrue1 = true;
+            let istrue2 = true;
+            let istrue3 = true;
+            $('.filter').on('click', 'li', function () {
+                $(this).addClass('active').siblings().removeClass('active');//点击高亮
+                ipage = 1;
+                if ($(this).text() == '综合') {
+                    type = 1;
+
+                } else if ($(this).text() == '销量') {
+                    type = 2;
+                    if (istrue1) {
+                        paixu = 'DESC';
+                    } else {
+                        paixu = 'ASC';
+                    }
+                    istrue1 = !istrue1;
+                } else if ($(this).text() == '人气') {
+                    type = 3;
+                    if (istrue2) {
+                        paixu = 'DESC';
+                    } else {
+                        paixu = 'ASC';
+                    }
+                    istrue2 = !istrue2;
+                } else if ($(this).text() == '价格') {
+                    type = 4;
+                    if (istrue3) {
+                        paixu = 'DESC';
+                    } else {
+                        paixu = 'ASC';
+                    }
+                    istrue3 = !istrue3;
+                }
+                init(n);
+            });
+            //输入页码跳转
+            $('#goPageBtn').click(function () {
+                ipage = $('#gopage').val();
+                init(n);
+            });
+            //上一页
+            $('#PaginationTB').on('click', '.apver', function () {
+                ipage = --ipage;
+                if (ipage < 1) {
+                    ipage = 1;
+                }
+                init(n);
+            });
+            //下一页
+            $('#PaginationTB').on('click', '.anext', function () {
+                ipage = ++ipage;
+                if (ipage > sum) {
+                    ipage = sum;
+                }
+                init(n);
+            });
+        }
+
+        init(n);
+        btns(n);
+
+        //选择价格区间商品显示
+        $('#btn').click(function () {
+            minPrice = $('#minPrice').val();
+            maxPrice = $('#maxPrice').val();
+            n = 2;
+            btns(n);
+            init(n);
+        });
+
+        //模糊查询:头部是引入的要等全部加载完才可以查询
+        $('#btnSearch').click(function () {
+            mohu = $('#txtSearch').val();
+            minPrice = $('#minPrice').val();
+            maxPrice = $('#maxPrice').val();
+            n = 3;
+            btns(n);
+            init(n);
+        });
+
+
+        //跳转详情页
+        $('#productList').on('click', 'li', function () {
+            window.open('goods.html?' + $(this).attr('goodId'));
+        });
+    })();
+</script>
+
+</html>

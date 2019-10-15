@@ -1,0 +1,349 @@
+.head {
+    .content {
+
+        .nav {
+            .nav1 {
+                .nav-top {
+                    background: #333 url(../css/img/nav_b_bg.jpg) no-repeat 203px center;
+                }
+
+                .nav-bottom {
+                    .nav-bottom-list {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .top {
+            h1 {
+                background: url(../css/img/logo_reg.jpg) 2px;
+            }
+
+            .search {
+                .hotWord {
+                    width: 350px;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}
+
+#search-list {
+    overflow: hidden;
+    width: 1200px;
+    margin: 15px auto;
+
+    .fl {
+        width: 957px;
+        float: left;
+        overflow: hidden;
+
+        h2 {
+            height: 32px;
+            line-height: 32px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .term {
+            margin-bottom: 19px;
+            border: 1px solid #e5e5e5;
+            overflow: hidden;
+
+            dl {
+                overflow: hidden;
+                line-height: 58px;
+                position: relative;
+
+                dt {
+                    width: 80px;
+                    background: #f1f1f1;
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #444;
+                    padding-left: 10px;
+                    float: left;
+                    height: 100%;
+                }
+
+                dd {
+                    width: 840px;
+                    overflow: hidden;
+                    position: relative;
+                    float: left;
+                    height: 58px;
+                    line-height: 58px;
+                    padding-left: 10px;
+                    font-size: 12px;
+                    color: #666;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .filter {
+            margin-bottom: 30px;
+            height: 45px;
+            border: 1px solid #e5e5e5;
+            background: #f1f1f1;
+
+            .active {
+                color: #dc0f50;
+                border-left: 1px solid #e5e5e5;
+                background: #fff;
+                border-right: 1px solid #e5e5e5;
+
+                i {
+                    color: #dc0f50;
+                }
+            }
+
+            li {
+                float: left;
+                width: 88px;
+                height: 46px;
+                overflow: hidden;
+                text-align: center;
+                line-height: 45px;
+                font-size: 12px;
+                color: #333;
+                cursor: pointer;
+
+                i {
+                    font-size: 10px;
+                    color: #ccc;
+                    padding-left: 5px;
+                }
+            }
+
+            #on {
+                width: 222px;
+                padding-left: 21px;
+                color: #dc0f50;
+                border-left: 1px solid #e5e5e5;
+                background: #fff;
+                border-right: 1px solid #e5e5e5;
+
+                input {
+                    width: 32px;
+                    padding: 0 10px;
+                    float: left;
+                    text-align: left;
+                    margin-top: 11px;
+                    height: 22px;
+                    line-height: 22px;
+                    font-size: 12px;
+                    color: #666;
+                    border: 1px solid #d6d6d6;
+                }
+
+                span {
+                    float: left;
+                    padding: 0 10px;
+                    color: #bdbdbd;
+                }
+
+                #btn {
+                    display: block;
+                    width: 50px;
+                    height: 24px;
+                    line-height: 24px;
+                    background: #dc0f50;
+                    text-align: center;
+                    font-size: 12px;
+                    color: #fff;
+                    float: left;
+                    margin: 11px 0 0 15px;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .ac-list {
+            padding: 0 10px;
+            width: 100%;
+            margin-bottom: 0;
+
+            li {
+                padding: 0 10px;
+                width: 214px;
+                float: left;
+                overflow: hidden;
+                margin-bottom: 30px;
+
+                a {
+                    display: block;
+                    overflow: hidden;
+                    position: relative;
+
+                    img {
+                        display: block;
+                        width: 214px;
+                        height: 214px;
+                    }
+
+                    b {
+                        padding: 5px 0;
+                        overflow: hidden;
+                        height: 40px;
+                        line-height: 20px;
+                        font-size: 14px;
+                        color: #333;
+                        display: block;
+                    }
+
+                    p {
+                        height: 24px;
+                        line-height: 24px;
+                        font-size: 20px;
+                        color: #e11f24;
+                    }
+
+                    font {
+                        display: block;
+                        font-size: 14px;
+                        color: #666;
+                    }
+                }
+            }
+        }
+
+        .paglist {
+            margin-bottom: 30px;
+            text-align: center;
+            overflow: hidden;
+            // height: 34px;
+            width: 900px; // background: red;
+
+            span {
+                .aactive {
+                    color: #fff;
+                    background: #dc0f50;
+                }
+
+                a {
+                    display: inline-block;
+                    padding: 0 15px;
+                    height: 34px;
+                    line-height: 34px;
+                    border: 1px solid #e5e5e5;
+                    background: #fafafa;
+                    text-align: center;
+                    margin-right: 5px;
+                    font-size: 14px;
+                    color: #666;
+
+                    &:hover {
+                        color: #fff;
+                        background: #dc0f50;
+                    }
+                }
+
+                em {
+                    padding-left: 18px;
+                    line-height: 34px;
+                    font-size: 14px;
+                    color: #666;
+                    margin-right: 10px;
+
+                    input {
+                        width: 34px;
+                        height: 34px;
+                        text-align: center;
+                        border: 1px solid #e5e5e5;
+                        margin: 0 3px;
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    .fr {
+        width: 233px;
+        overflow: hidden;
+        float: right;
+
+        .hd {
+            margin-bottom: 5px;
+            height: 32px;
+            background: url(../css/img/hd1_bg.jpg) repeat-x left bottom;
+            overflow: hidden;
+
+            h2 {
+                font-size: 20px;
+                float: left;
+                padding-right: 8px;
+                color: #333;
+                background: #fff;
+                line-height: 24px;
+                padding-top: 4px;
+                padding-bottom: 5px;
+            }
+        }
+
+        .bd {
+            li {
+                height: 80px;
+                padding: 10px 0;
+                border-bottom: 1px solid #e5e5e5;
+                margin-top: -1px;
+                overflow: hidden;
+                position: relative;
+                padding-left: 97px;
+
+                .i2 {
+                    background: url(../css/img/biao_bg.png) no-repeat 0 -26px;
+                }
+
+                .i3 {
+                    background: url(../css/img/biao_bg.png) no-repeat 0 -52px;
+                }
+
+                i {
+                    display: block;
+                    width: 25px;
+                    height: 25px;
+                    line-height: 18px;
+                    padding-left: 5px;
+                    font-size: 12px;
+                    color: #fff;
+                    position: absolute;
+                    left: 0;
+                    top: 10px;
+                    z-index: 1;
+                    background: url(../css/img/biao_bg.png) no-repeat;
+                }
+
+                img {
+                    width: 80px;
+                    height: 80px;
+                    position: absolute;
+                    left: 0;
+                    top: 10px;
+                    border: none;
+                }
+
+                p {
+                    display: block;
+                    height: 32px;
+                    line-height: 16px;
+                    overflow: hidden;
+                    font-size: 14px;
+                    color: #333;
+                    margin-bottom: 22px;
+                }
+
+                span {
+                    font-size: 20px;
+                    color: #dc0f50;
+                    line-height: 26px;
+                }
+            }
+        }
+    }
+}

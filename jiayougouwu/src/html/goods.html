@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../css/img/jygw.ico" type="image/x-icon">
+    <title>家有购物-商品详情</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/modules.css">
+    <link rel="stylesheet" href="../sass/goods.css">
+</head>
+
+<body>
+    <div class="wrap_top"></div>
+    <div class="head"></div>
+    <div id="goodContent">
+        <!-- <h2>全部商品/惠家有</h2>
+        <div class="show">
+            <div class="fl">
+                <div class="small">
+                    <a href="" class="prve"></a>
+                    <div class="smallpic">
+                        <ul>
+                            <li class="active">
+                                <img src="../img/a1.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="../img/a2.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="../img/a3.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="../img/a4.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="../img/a5.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="" class="next"></a>
+                </div>
+                <div class="big">
+                    <img src="../img/a1.jpg" alt="" id="bigImg">
+                    <div class="mask"></div>
+                    <span>收藏</span>
+                </div>
+
+                <div class="bigpic">
+                    <img src="../img/a1.jpg" alt="">
+                </div>
+            </div>
+            <div class="fr">
+                <h3 id="productName">一梦颗粒按摩乳胶枕芯一只装</h3>
+                <div class="bd">
+                    <p class="price">
+                        <b>￥69.90</b>
+                        <span>特价</span>
+                        <a href="###">进入店铺</a>
+                    </p>
+                    <p class="num">
+                        <b>商品编号</b>
+                        <span>7016139221</span>
+                    </p>
+                    <p class="shou">
+                        <b>月销</b>
+                        <span>179件</span>
+                    </p>
+                    <p class="gift">
+                        <b>促销</b>
+                        <span>特价</span>
+                    </p>
+                    <p class="number">
+                        <b>购买数量</b>
+                        <font>
+                            <a class="jian" num="202042-2">-</a>
+                            <input type="text" id="buycount" value="1">
+                            <a class="jia" num="202042-3">+</a>
+                        </font>
+                        <span>限购<i>1</i>件</span>
+                    </p>
+                    <p class="list">
+                        <span class="s1">包邮</span>
+                        <span class="s2">正品保障</span>
+                        <span class="s3">支持七日无理由退货（需保证商品完好）</span>
+                    </p>
+                    <p class="btn">
+                        <a href="" class="jiona">加入购物车</a>
+                        <a href="" class="buya">立即购买</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="goodtext">
+            <ul class="hd">
+                <li class="active">商品详情</li>
+                <li>规格参数</li>
+            </ul>
+            <div class="bd">
+                <div>
+                    <img src="../img/a1.jpg" alt="">
+                </div>
+                <div>
+                    规格参数
+                </div>
+            </div>
+            <a class="zhengzhao">
+                证照信息：
+                <img src="../css/img/gzicon_03.jpg" alt="">
+            </a>
+        </div> -->
+    </div>
+    <div class="foot"></div>
+    <div class="tanchuang"></div>
+    <div class="fixed"></div>
+</body>
+<script src="../js/jquery-1.10.1.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/modules.js"></script>
+<script>
+    (function () {
+        $('.fixed').load('toTop.html')
+        let goodsId = '';
+        goodsId = location.search.substr(1);//获取商品类型
+        // console.log(goodsId)
+        let p = new Promise(function (resolve) {
+            $.ajax({
+                type: 'get',
+                url: '../api/goods.php',
+                dataType: 'json',
+                success: str => {
+                    resolve(str);
+                    // console.log(str);
+                }
+            });
+        });
+        p.then(function (data) {
+            //数据渲染
+            let str = data.map(item => {
+                if (item.goodsId == goodsId) {
+
+                    let imglist = item.url2.split(',');
+                    let str2 = imglist.map(item => {
+                        return `<li class="minpic">
+                                    <img src="${item}" alt="" class="">
+                                </li>`
+                    }).join('');
+                    console.log(item)
+                    return `<h2>全部商品/惠家有</h2>
+                            <div class="show">
+                                <div class="fl">
+                                    <div class="small">
+                                        <a href="" class="prve"></a>
+                                        <div class="smallpic">
+                                            <ul>
+                                                ${str2}
+                                            </ul>
+                                        </div>
+                                        <a href="" class="next"></a>
+                                    </div>
+                                    <div class="big">
+                                        <img src="${imglist[0]}" alt="" id="bigImg">
+                                        <div class="mask"></div>
+                                        <span class="shoucang">收藏</span>
+                                    </div>
+                                
+                                    <div class="bigpic">
+                                        <img src="${imglist[0]}" alt="" id="bigpic">
+                                    </div>
+                                </div>
+                                <div class="fr">
+                                    <h3 id="productName">${item.title}</h3>
+                                    <div class="bd">
+                                        <p class="price">
+                                            <b>￥${item.price}</b>
+                                            <span>${item.promotion}</span>
+                                            <a href="###">进入店铺</a>
+                                        </p>
+                                        <p class="num">
+                                            <b>商品编号</b>
+                                            <span id="goods_id">${item.goodsId}</span>
+                                        </p>
+                                        <p class="shou">
+                                            <b>月销</b>
+                                            <span>${item.sales}件</span>
+                                        </p>
+                                        <p class="gift">
+                                            <b>促销</b>
+                                            <span>${item.promotion}</span>
+                                        </p>
+                                        <p class="number">
+                                            <b>购买数量</b>
+                                            <font>
+                                                <a class="jian" kucun="${item.repertory}">-</a>
+                                                <input type="text" id="buycount" value="1" kucun="${item.repertory}">
+                                                <a class="jia" kucun="${item.repertory}">+</a>
+                                            </font>
+                                            <span>限购<i>${item.repertory}</i>件</span>
+                                        </p>
+                                        <p class="list">
+                                            <span class="s1">包邮</span>
+                                            <span class="s2">正品保障</span>
+                                            <span class="s3">支持七日无理由退货（需保证商品完好）</span>
+                                        </p>
+                                        <p class="btn">
+                                            <a href="###" class="jiona">加入购物车</a>
+                                            <a href="" class="buya">立即购买</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="goodtext">
+                                <ul class="l1">
+                                    <li class="active">商品详情</li>
+                                    <li>规格参数</li>
+                                </ul>
+                                <div class="l2">
+                                    <div>
+                                        <img src="${imglist[0]}" alt="">
+                                    </div>
+                                    <div>
+                                        规格参数
+                                    </div>
+                                </div>
+                                <a class="zhengzhao">
+                                    证照信息：
+                                    <img src="../css/img/gzicon_03.jpg" alt="">
+                                </a>
+                            </div>`;
+                }
+            }).join('');
+            $('#goodContent').html(str);
+        });
+
+        //大图，放大镜图片路径
+        $('#goodContent').on('click', '.minpic', function () {
+            $(this).addClass('active').siblings().removeClass('active');//点击小图高亮
+            let url = $(this).children('img').attr('src');//获取小图图片路径
+            $('#bigImg').attr('src', url);//设置大图图片路径
+            $('#bigpic').attr('src', url);//放大镜图片路径
+        });
+
+        //收藏
+        let isok = true;
+        $('#goodContent').on('click', '.shoucang', function () {
+            if (isok) {
+                $('.shoucang').css('background', 'url(../css/img/shoucang.png) no-repeat 0 -79px');
+            } else {
+                $('.shoucang').css('background', 'url(../css/img/shoucang.png) no-repeat 0 -59px');
+            }
+            isok = !isok;
+        });
+
+        //遮罩，放大镜显示隐藏
+        $('#goodContent').on('mouseenter', '.big', function () {
+            $('.mask').css('display', 'block');
+            $('.bigpic').css('display', 'block');
+        }).on('mouseleave', '.big', function () {
+            $('.mask').css('display', 'none');
+            $('.bigpic').css('display', 'none');
+        });
+
+        //绑定鼠标与遮罩的运动关系
+        $('#goodContent').on('mousemove', '.big', function (ev) {
+            var lefts = ev.pageX - $('#bigImg').offset().left - $('.mask').width() / 2;
+            var tops = ev.pageY - $('#bigImg').offset().top - $('.mask').height() / 2;
+            /* 临界值 */
+            if (lefts <= 0) {
+                lefts = 0;
+            } else if (lefts >= $('#bigImg').width() - $('.mask').width()) {
+                lefts = $('#bigImg').width() - $('.mask').width();
+            }
+
+            if (tops <= 0) {
+                tops = 0;
+            } else if (tops >= $('#bigImg').height() - $('.mask').height()) {
+                tops = $('#bigImg').height() - $('.mask').height();
+            }
+            $('.mask').css('left', lefts);
+            $('.mask').css('top', tops);
+
+            /* 显示放大后的图 */
+            /* 移动中的距离与最大移动距离的比 */
+            var percentagex = lefts / ($('.mask').width() - $('#bigImg').width());
+            var percentagey = tops / ($('.mask').height() - $('#bigImg').height());
+
+            $('#bigpic').css('left', ($('#bigpic').width() - $('.bigpic').width()) * percentagex)
+            $('#bigpic').css('top', ($('#bigpic').height() - $('.bigpic').height()) * percentagey)
+        });
+
+        //点击数量加减
+        $('#goodContent').on('click', '.number font a', function () {
+            let kuncun = $(this).attr('kucun') * 1;//data-num
+            let num = 0;
+            if ($(this).attr('class') == 'jia') {
+                num = $(this).prev().val() * 1;
+                num++;
+
+            } else if ($(this).attr('class') == 'jian') {
+                num = $(this).next().val() * 1;
+                num--;
+            }
+            if (num < 1) {
+                num = 1;
+            } else if (num > kuncun) {
+                num = kuncun;
+            }
+            // console.log(num)
+            // //2.ajax 不用type更简单，把页面的num传到数据库，更新数据库
+            $(this).parent().find('#buycount').val(num);
+        });
+
+        //输入数量限制
+        $('#goodContent').on('blur', '#buycount', function () {
+            let kuncun = $(this).attr('kucun') * 1;//data-num
+            let num = $(this).val() * 1;
+            if (num < 1) {
+                num = 1;
+            } else if (num > kuncun) {
+                num = kuncun;
+            }
+            console.log(num)
+            //.ajax把页面的num传到数据库，更新数据库
+            $(this).val(num);
+        });
+
+        //加入购物车
+        setcookie('url', location.href, 7);
+        $('#goodContent').on('click', '.jiona', function () {
+            let goods_num = $('#buycount').val();
+            let goods_id = $('#goods_id').text();
+            let uid = getcookie('uid');
+            if (uid) {
+                $.ajax({
+                    type: 'post',
+                    url: '../api/jiongoods.php',
+                    data: {
+                        name: uid,
+                        good: goods_id,
+                        num: goods_num
+                    },
+                    success: str => {
+                        $('#tanchuang').css('display', 'block');
+                        $('#confirm_sp_msg').html('成功加入购物车');
+                    }
+                });
+
+            } else {
+                location.href = 'login.html';
+            }
+
+        });
+        //立即购买
+        $('#goodContent').on('click', '.buya', function () {
+            window.open('car.html');
+        });
+        //选项卡
+        $('#goodContent').on('click', '.l1 li', function () {
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.l2 div').hide().eq($(this).index()).show();
+        });
+    })();
+</script>
+
+</html>

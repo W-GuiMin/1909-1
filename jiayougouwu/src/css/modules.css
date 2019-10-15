@@ -1,0 +1,635 @@
+.wrap_top {
+    height: 30px;
+    background: #e5e5e5;
+    font-size: 12px;
+    line-height: 30px;
+    color: #666;
+}
+
+.wrap_top .content a {
+    color: #666;
+}
+
+.wrap_top .content a:hover {
+    text-decoration: underline;
+    color: #dc0f50;
+}
+
+.wrap_top .content li {
+    margin-right: 20px;
+    float: left;
+}
+
+.wrap_top .content li:nth-child(5) a,
+.wrap_top .content li:nth-child(7) a {
+    color: #dc0f50;
+    padding: 0px 6px;
+}
+
+.wrap_top .content li:nth-child(10) {
+    padding-left: 12px;
+    background: url(../css/img/iphone.png) no-repeat left center;
+    margin-right: 18px;
+    margin-left: 4px;
+}
+
+.wrap_top .content li:nth-child(11) {
+    padding-left: 18px;
+    background: url(../css/img/wx.png) no-repeat left center;
+    margin-right: 18px;
+    margin-left: 4px;
+}
+
+.head {
+    /* height: 139px;\  */
+    margin-top: 32px;
+    border-bottom: 2px solid #dc0f50;
+}
+
+.head .content .top {
+    height: 99px;
+}
+
+.head .content .top h1 {
+    width: 240px;
+    height: 36px;
+    margin: 9px 110px 0 0;
+    background: url(../css/img/logo.jpg) 2px;
+    text-indent: -99999px;
+}
+
+.head .content .top .search {
+    width: 500px;
+    margin-right: 156px;
+    position: relative;
+}
+
+.head .content .top .search input {
+    width: 369px;
+    border: 2px solid #dc0f50;
+    height: 20px;
+    padding: 10px 112px 10px 15px;
+    overflow: hidden;
+    font-size: 14px;
+    color: #666;
+    line-height: 20px;
+}
+
+.head .content .top .search .sou {
+    display: block;
+    width: 98px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #fff;
+    background: #dc0f50;
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.head .content .top .search .hotWord {
+    overflow: hidden;
+    line-height: 36px;
+    height: 36px;
+    padding: 0px 5px;
+}
+
+.head .content .top .search .hotWord a {
+    display: block;
+    margin-right: 15px;
+    float: left;
+    color: #999;
+    font-size: 14px;
+}
+
+.head .content .top .search .hotWord a:hover {
+    color: #dc0f50;
+}
+
+.head .content .top .search .hotWord a:nth-child(1) {
+    color: #dc0f50;
+}
+
+.head .content .top .gou {
+    width: 122px;
+    height: 44px;
+    z-index: 100;
+    position: relative;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    background: url(../css/img/car_icon.png) no-repeat 10px center;
+}
+
+.head .content .top .gou .gocar {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    color: #333;
+    font-size: 14px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.head .content .top .gou .gocar:hover {
+    text-decoration: none;
+}
+
+/* .head .content .top .gou .gocar .gocar-num {
+    padding: 0px 5px;
+    height: 16px;
+    border-radius: 8px;
+    background: #dc0f50;
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    text-align: center;
+    line-height: 16px;
+    color: #fff;
+    font-size: 12px;
+} */
+
+.head .content .top .gou .biao {
+    width: 14px;
+    height: 11px;
+    background: url(../css/img/ware_list.png) no-repeat;
+    position: absolute;
+    left: 63px;
+    top: 35px;
+    z-index: 102;
+    display: none;
+}
+
+.head .content .top .gou .ware_list {
+    display: none;
+    width: 308px;
+    border: 1px solid #e5e5e5;
+    position: absolute;
+    left: -187px;
+    top: 45px;
+    background: #fff;
+    z-index: 101;
+}
+
+.head .content .top .gou .ware_list .wu {
+    display: none;
+    height: 58px;
+    line-height: 58px;
+    font-size: 14px;
+    color: #999;
+    padding-left: 64px;
+    background: url(../css/img/car.png) no-repeat 20px center;
+}
+
+.head .content .top .gou .ware_list .you {
+    display: none;
+    text-align: left;
+}
+
+.head .content .top .gou .ware_list .you h2 {
+    height: 20px;
+    line-height: 20px;
+    padding: 10px 0 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.head .content .top .gou .ware_list .you .list {
+    height: 288px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 18px;
+    overflow: hidden;
+}
+
+.head .content .top .gou .ware_list .you .list li {
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+    padding: 0 10px;
+    height: 71px;
+}
+
+.head .content .top .gou .ware_list .you .list li .product {
+    overflow: hidden;
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    padding: 12px 0;
+    width: 197px;
+    height: 71px;
+}
+
+.head .content .top .gou .ware_list .you .list li .product img {
+    display: block;
+    float: left;
+    width: 60px;
+    height: 60px;
+}
+
+.head .content .top .gou .ware_list .you .list li .product p {
+    overflow: hidden;
+    width: 128px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    float: right;
+    font-size: 12px;
+    line-height: 18px;
+    color: #333;
+
+}
+
+.head .content .top .gou .ware_list .you .list li span {
+    font-size: 12px;
+    color: #333;
+    width: 80px;
+    height: 71px;
+    line-height: 24px;
+    float: right;
+    text-align: right;
+}
+
+.head .content .top .gou .ware_list .you .list li span .delete {
+    display: block;
+    line-height: 30px;
+    color: #dc0f50;
+}
+
+.head .content .top .gou .ware_list .you .total {
+    height: 42px;
+    overflow: hidden;
+    background: #e5e5e5;
+    padding: 5px 12px;
+    overflow: hidden;
+}
+
+.head .content .top .gou .ware_list .you .total span {
+    display: inline-block;
+    padding-top: 6px;
+    float: right;
+}
+
+.head .content .top .gou .ware_list .you .total span a {
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background: #dc0f50;
+}
+
+.head .content .top .gou .ware_list .you .total p:nth-child(3) i {
+    font-size: 16px;
+    color: #dc0f50;
+}
+
+.head .content .top .gou .ware_list .you .total p {
+    display: block;
+    line-height: 20px;
+    height: 20px;
+    font-size: 12px;
+}
+
+.head .content .top .gou .ware_list .you .total p i {
+    padding: 0px 5px;
+    font-weight: bold;
+}
+
+.head .content .nav {
+    height: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.head .content .nav .nav1 {
+    width: 233px;
+    cursor: pointer;
+    margin-right: 30px;
+    float: left;
+}
+
+.head .content .nav .nav1 .nav-top {
+    width: 193px;
+    background: #333;
+    color: #fff;
+    line-height: 40px;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 14px;
+    position: relative;
+}
+
+.head .content .nav .nav1 .nav-bottom {
+    height: 558px;
+    position: absolute;
+    top: 42px;
+    border-top: none;
+    z-index: 10;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-bottom-list {
+    width: 231px;
+    border: 1px solid #e5e5e5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    float: left;
+    background: #fff;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-bottom-list .nav-bottom-li {
+    height: 40px;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-bottom-list .nav-bottom-li a {
+    padding: 0px 20px;
+    display: block;
+    color: #333;
+    line-height: 40px;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-bottom-list .active {
+    background: #e6e6e6;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-bottom-list .active a {
+    color: #dc0f50;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-content {
+    display: none;
+    overflow: hidden;
+    width: 965px;
+    min-height: 560px;
+    box-sizing: border-box;
+    padding: 15px 0px;
+    position: absolute;
+    top: 0px;
+    left: 232px;
+    background: #fff;
+    box-shadow: 0px 0px 10px #DDDDDD;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-content dl {
+    width: 100%;
+    overflow: hidden;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-content dl dt {
+    width: 100px;
+    padding-right: 30px;
+    line-height: 36px;
+    height: 36px;
+    overflow: hidden;
+    float: left;
+    display: block;
+    position: relative;
+    clear: left;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-content dl dt a {
+    font-size: 14px;
+    line-height: 36px;
+    height: 36px;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-content dl dt i {
+    width: 4px;
+    right: 12px;
+    top: 2px;
+    line-height: 36px;
+    height: 36px;
+    font-size: 14px;
+    position: absolute;
+    font-style: normal;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-content dl dd {
+    width: 770px;
+    float: left;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    padding-right: 20px;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-content dl dd a {
+    font-size: 14px;
+    float: left;
+    color: #666;
+    padding: 0 20px;
+    margin: 10px 0;
+    height: 16px;
+    line-height: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    border-left: 1px solid #E3E3E3;
+}
+
+.head .content .nav .nav1 .nav-bottom .nav-content dl dd a:hover {
+    color: #dc0f50;
+}
+
+.head .content .nav .nav2 {
+    width: 900px;
+    height: 40px;
+}
+
+.head .content .nav .nav2 li {
+    float: left;
+    line-height: 40px;
+    padding: 0 16px 0 24px;
+}
+
+.head .content .nav .nav2 li a {
+    font-size: 18px;
+    color: #333;
+}
+
+.foot {
+    margin-top: 20px;
+    height: 347px;
+}
+
+.foot .content {
+    height: 295px;
+}
+
+.foot .content .foot-top {
+    overflow: hidden;
+}
+
+.foot .content .foot-top ul {
+    overflow: hidden;
+    margin: 20px auto 45px auto;
+}
+
+.foot .content .foot-top ul li:nth-child(2) {
+    background-position: 15px -55px;
+}
+
+.foot .content .foot-top ul li:nth-child(3) {
+    background-position: 15px -110px;
+}
+
+.foot .content .foot-top ul li:nth-child(4) {
+    background-position: 15px -165px;
+}
+
+.foot .content .foot-top ul li:nth-child(5) {
+    background-position: 15px -220px;
+}
+
+.foot .content .foot-top ul li {
+    height: 54px;
+    padding: 0 25px 0 82px;
+    float: left;
+    background: url(../css/img/warrant_icon.png) no-repeat 15px 0;
+}
+
+.foot .content .foot-top ul li h3 {
+    font-weight: normal;
+    line-height: 22px;
+    padding-top: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.foot .content .foot-top ul li p {
+    line-height: 18px;
+    font-size: 12px;
+    color: #999;
+}
+
+.foot .content .foot-center {
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.foot .content .foot-center .fl {
+    width: 860px;
+    padding-left: 78px;
+    float: left;
+    overflow: hidden;
+}
+
+.foot .content .foot-center .fl dl {
+    width: 20%;
+    float: left;
+    overflow: hidden;
+}
+
+.foot .content .foot-center .fl dl a:hover {
+    color: #dc0f50;
+}
+
+.foot .content .foot-center .fl dl dt {
+    color: #666;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.foot .content .foot-center .fl dl dt a {
+    color: #666;
+}
+
+.foot .content .foot-center .fl dl dd {
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
+}
+
+.foot .content .foot-center .fl dl dd a {
+    color: #999;
+}
+
+.foot .content .foot-center .fr {
+    float: right;
+    overflow: hidden;
+    width: 210px;
+    padding-right: 50px;
+}
+
+.foot .content .foot-center .fr ul {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.foot .content .foot-center .fr ul li {
+    width: 79px;
+    float: left;
+    line-height: 25px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    font-weight: bold;
+    margin-right: 26px;
+}
+
+.foot .content .foot-center .fr ul li img {
+    width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+
+.foot .content .foot-center .fr p {
+    padding-left: 35px;
+    overflow: hidden;
+    background: url(../css/img/mobile.png) no-repeat;
+}
+
+.foot .content .foot-center .fr p b {
+    line-height: 26px;
+    display: block;
+    font-size: 20px;
+    color: #666;
+    font-weight: bold;
+}
+
+.foot .content .foot-center .fr p i {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    line-height: 14px;
+    margin-top: -3px;
+}
+
+.foot .foot-bottom {
+    background: #333;
+    padding: 10px 0;
+}
+
+.foot .foot-bottom .content {
+    height: 100%;
+}
+
+.foot .foot-bottom .content p {
+    line-height: 26px;
+    color: #999;
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+.foot .foot-bottom .content p a {
+    color: #999;
+}
+
+.foot .foot-bottom .content p a:hover {
+    color: #fff;
+}

@@ -1,0 +1,190 @@
+.head {
+    .content {
+        .top {
+            h1 {
+                background: url(../css/img/logo_reg.jpg) 2px;
+            }
+
+            .search {
+                .hotWord {
+                    width: 350px;
+                    overflow: hidden;
+                }
+            }
+        }
+
+        .nav {
+            height: 0px;
+            overflow: hidden;
+        }
+    }
+}
+
+#mainContent {
+    padding: 60px 70px 30px 70px;
+    overflow: hidden;
+    width: 1060px;
+    margin: 0 auto;
+
+    .fl {
+        width: 448px;
+        height: 336px;
+        padding: 40px 0 0 0;
+        overflow: hidden;
+        margin-bottom: 75px;
+    }
+
+    .fr {
+        width: 448px;
+        overflow: hidden;
+        height: 376px;
+        margin-bottom: 75px;
+
+        .hd {
+            height: 40px;
+            line-height: 40px;
+            overflow: hidden;
+
+            a {
+                display: block;
+                width: 50%;
+                text-align: center;
+                float: left;
+                font-size: 18px;
+                color: #666;
+                cursor: pointer;
+            }
+
+            .curr {
+                i {
+                    color: #dc0f50;
+                    border-bottom: 2px solid #dc0f50;
+                    display: inline-block;
+                    height: 38px;
+                }
+            }
+        }
+
+        .bd {
+            // display: none;
+            margin-top: -1px;
+            overflow: hidden;
+            height: 290px;
+            border: 1px solid #e5e5e5;
+            padding: 45px 0 0 70px;
+
+            font {
+                display: none;
+                height: 40px;
+                line-height: 38px;
+                padding: 0 32px;
+                background: url(../css/img/error_bg.png) no-repeat 9px 50%;
+                color: #e92d2f;
+                font-size: 12px;
+            }
+
+            ul {
+                height: 144px;
+
+                li {
+                    overflow: hidden;
+                    height: 40px;
+                    margin-bottom: 19px;
+                    position: relative;
+
+                    i {
+                        display: block;
+                        width: 18px;
+                        height: 18px;
+                        background: url(../css/img/icon01.png) no-repeat;
+                        position: absolute;
+                        left: 11px;
+                        top: 11px;
+                    }
+
+                    .i2 {
+                        background: url(../css/img/icon02.png) no-repeat;
+                    }
+
+                    input {
+                        margin-right: 16px;
+                        float: left;
+                        height: 28px;
+                        line-height: 28px;
+                        padding: 5px 0 5px 60px;
+                        width: 243px;
+                        border: 1px solid #d6d6d6;
+                        font-size: 14px;
+                        color: #666;
+                    }
+
+                    .active {
+                        border-color: #e92d2f;
+                    }
+
+                    span {
+                        display: none;
+                        width: 20px;
+                        height: 20px;
+                        float: left;
+                        background: url(../css/img/success_bg.png) no-repeat;
+                        margin-top: 10px;
+                    }
+                }
+
+                .l3 {
+                    margin-top: -14px;
+
+                    input {
+                        width: 13px;
+                        height: 13px;
+                        border: none;
+                        float: left;
+                        margin-top: 5px;
+                        margin-right: 5px;
+                        padding: 0;
+                    }
+
+                    label {
+                        color: #666;
+                        font-size: 14px;
+                    }
+
+                    a {
+                        padding-left: 10px;
+                        color: #666;
+                        font-size: 14px;
+
+                        &:hover {
+                            color: #dc0f50;
+                        }
+                    }
+
+                    .toreg {
+                        float: right;
+                        padding-right: 70px;
+                    }
+                }
+            }
+
+            p {
+                height: 40px;
+                line-height: 40px;
+                padding-right: 70px;
+
+                a {
+                    display: block;
+                    background: #dc0f50;
+                    text-align: center;
+                    font-size: 18px;
+                    color: #fff;
+                }
+            }
+        }
+
+        .quick {
+            padding-top: 9px;
+            height: 326px;
+        }
+    }
+}

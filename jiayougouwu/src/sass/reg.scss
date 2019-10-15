@@ -1,0 +1,191 @@
+.head {
+    .content {
+        .top {
+            h1 {
+                background: url(../css/img/logo_reg.jpg) 2px;
+            }
+
+            .search {
+                .hotWord {
+                    width: 350px;
+                    overflow: hidden;
+                }
+            }
+        }
+
+        .nav {
+            height: 0px;
+            overflow: hidden;
+        }
+    }
+}
+
+#mainContent {
+    width: 1040px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background: #fff;
+    padding: 80px;
+
+    .fl {
+        width: 590px;
+        // overflow: hidden;
+
+        #register {
+            overflow: hidden;
+
+            li:nth-child(4) {
+                margin-bottom: 0px;
+            }
+
+            li {
+                // overflow: hidden;
+                height: 40px;
+                line-height: 40px;
+                margin-bottom: 20px;
+
+                b {
+                    display: block;
+                    width: 80px;
+                    font-size: 14px;
+                    color: #666;
+                    float: left;
+                    text-align: right;
+                    margin-right: 12px;
+
+                    i {
+                        font-family: "宋体";
+                        color: #dc0f50;
+                        font-size: 14px;
+                        margin-right: 3px;
+                    }
+                }
+
+                input {
+                    width: 263px;
+                    padding: 9px 20px;
+                    height: 20px;
+                    border: 1px solid #d6d6d6;
+                    color: #666;
+                    float: left;
+                    margin-right: 15px;
+                }
+
+                .active {
+                    border-color: #e92d2f;
+                }
+
+                span.s1 {
+                    display: none;
+                    float: left;
+                    margin-top: 10px;
+                    background: url(../css/img/error_bg.png) no-repeat 0 center;
+                    font-size: 14px;
+                    color: #e92d2f;
+                    width: auto;
+                    padding-left: 22px;
+                    margin: 0;
+                    line-height: 38px;
+                    height: 40px;
+                }
+
+                span.s2 {
+                    background: url(../css/img/error_bg.png) no-repeat 0 center;
+                    font-size: 14px;
+                    color: #dc0f50;
+                    width: 156px;
+                    padding-left: 22px;
+                    margin: 0;
+                    line-height: 20px;
+                    height: 40px;
+                }
+
+                span.s3 {
+                    display: none;
+                    width: 20px;
+                    height: 20px;
+                    float: left;
+                    background: url(../css/img/success_bg.png) no-repeat 0 center;
+                    margin-top: 10px;
+                }
+            }
+
+            #li_Verify {
+                input {
+                    width: 138px;
+                }
+
+                div {
+                    float: left;
+                    width: 90px;
+                    height: 40px;
+                    // margin-top: 9px;
+                    margin-right: 36px;
+                    background: url(../css/img/reg_bg.jpg);
+                    background-size: 100% 100%;
+                    text-align: center;
+                    position: relative;
+
+                    .yanzheng {
+                        display: inline-block;
+                        padding: 0px 3px;
+                        font-style: italic;
+                        // margin-top: -9px;
+                    }
+                }
+            }
+        }
+
+        p {
+            // width: 100%;
+            overflow: hidden;
+            // margin-top: -15px;
+            text-align: right;
+            padding-right: 193px;
+            height: 48px;
+            line-height: 48px;
+            color: #666;
+            font-size: 14px;
+
+            a {
+                display: inline;
+                background: none;
+                color: #666;
+                font-size: 14px;
+                line-height: 48px;
+            }
+
+            a.btn {
+                width: 305px;
+                float: right;
+                height: 40px;
+                line-height: 40px;
+                display: block;
+                background: #dc0f50;
+                text-align: center;
+                font-size: 18px;
+                color: #fff;
+            }
+        }
+
+        font {
+            display: block;
+            line-height: 20px;
+            text-align: right;
+            padding-right: 193px;
+
+            a {
+                color: #666;
+                font-size: 16px;
+                text-decoration: underline;
+
+                &:hover {
+                    color: #dc0f50;
+                }
+            }
+        }
+    }
+
+    .fr {}
+}
